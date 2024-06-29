@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>photome.png</file>
+        <file>photoop.png</file>
+    </qresource>
+</RCC>
