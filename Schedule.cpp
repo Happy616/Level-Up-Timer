@@ -68,6 +68,14 @@ void Schedule::setupUI() {
 void Schedule::onAddTask() {
     // 创建自定义TaskItem
     TaskDialog tdlg;
+    tdlg.setStyleSheet("QDialog {"
+                       "background-color: #FFF0F5;"  // 浅粉色背景
+                       "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                       "font-size: 16px;"
+                       "border: 2px solid pink;"
+                       "border-radius: 10px;"
+                       "}");
+
     if (tdlg.exec() == QDialog::Accepted) {
         TaskItem *newTaskItem = new TaskItem(tdlg.getTime(), tdlg.getTopic(), tdlg.getContent(), IDiter++, true);
         // 创建用于列表跟踪的item
@@ -83,9 +91,55 @@ void Schedule::onRemoveTask() {
     if (selectedItem) {
         int tempid = qobject_cast<TaskItem *>(taskListWidget_->itemWidget(selectedItem))->getId();
         if (QFile::remove(QString("task_data/task_%1.txt").arg(tempid))) {
-            QMessageBox::information(nullptr, "操作成功", "任务已被删除。");
+            QMessageBox msgBox;
+            msgBox.setWindowTitle("操作成功");
+            msgBox.setText("任务已被删除。");
+            msgBox.setStyleSheet("QMessageBox {"
+                                 "background-color: #FFF0F5;"  // 浅粉色背景
+                                 "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                                 "font-size: 16px;"
+                                 "border: 2px solid pink;"
+                                 "border-radius: 10px;"
+                                 "}"
+                                 "QPushButton {"
+                                 "border: 2px solid pink;"
+                                 "background-color: white;"
+                                 "color: black;"
+                                 "border-radius: 5px;"
+                                 "padding: 5px;"
+                                 "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                                 "font-size: 16px;"
+                                 "}"
+                                 "QPushButton:hover {"
+                                 "background-color: pink;"
+                                 "color: white;"
+                                 "}");
+            msgBox.exec();
         } else {
-            QMessageBox::warning(nullptr, "操作失败", "文件删除失败。");
+            QMessageBox msgBox;
+            msgBox.setWindowTitle("操作失败");
+            msgBox.setText("文件删除失败。");
+            msgBox.setStyleSheet("QMessageBox {"
+                                 "background-color: #FFF0F5;"  // 浅粉色背景
+                                 "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                                 "font-size: 16px;"
+                                 "border: 2px solid pink;"
+                                 "border-radius: 10px;"
+                                 "}"
+                                 "QPushButton {"
+                                 "border: 2px solid pink;"
+                                 "background-color: white;"
+                                 "color: black;"
+                                 "border-radius: 5px;"
+                                 "padding: 5px;"
+                                 "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                                 "font-size: 16px;"
+                                 "}"
+                                 "QPushButton:hover {"
+                                 "background-color: pink;"
+                                 "color: white;"
+                                 "}");
+            msgBox.exec();
         }
         taskListWidget_->takeItem(taskListWidget_->row(selectedItem));
     }
@@ -138,6 +192,31 @@ void Schedule::onTaskDoubleClicked(QListWidgetItem *item) {
         connect(buttonBox, &QDialogButtonBox::accepted, dialog, &QDialog::accept);
         connect(buttonBox, &QDialogButtonBox::rejected, dialog, &QDialog::reject);
         layout->addWidget(buttonBox);
+
+        QString buttonBoxStyle = "QDialogButtonBox {"
+                                 "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                                 "font-size: 16px;"
+                                 "}"
+                                 "QPushButton {"
+                                 "border: 2px solid pink;"
+                                 "background-color: white;"
+                                 "color: black;"
+                                 "border-radius: 5px;"
+                                 "padding: 5px;"
+                                 "}"
+                                 "QPushButton:hover {"
+                                 "background-color: pink;"
+                                 "color: white;"
+                                 "}";
+
+        buttonBox->setStyleSheet(buttonBoxStyle);
+        dialog->setStyleSheet("QDialog {"
+                              "background-color: #FFF0F5;"  // 浅粉色背景
+                              "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                              "font-size: 16px;"
+                              "border: 2px solid pink;"
+                              "border-radius: 10px;"
+                              "}");
 
         dialog->setLayout(layout);
         if (dialog->exec() == QDialog::Accepted) {
@@ -224,8 +303,22 @@ void Schedule::loadTaskData() {
     QString messageBoxStyle = "QMessageBox {"
                               "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
                               "font-size: 16px;"
+                              "background-color: #FFF0F5;"  // 浅粉色背景
                               "border: 2px solid pink;"
                               "border-radius: 10px;"
+                              "}"
+                              "QPushButton {"
+                              "border: 2px solid pink;"
+                              "background-color: white;"
+                              "color: black;"
+                              "border-radius: 5px;"
+                              "padding: 5px;"
+                              "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                              "font-size: 16px;"
+                              "}"
+                              "QPushButton:hover {"
+                              "background-color: pink;"
+                              "color: white;"
                               "}";
 
     messageBox.setStyleSheet(messageBoxStyle);
