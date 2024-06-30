@@ -1,6 +1,10 @@
 # Levertimer
 这是一个可爱粉色风格的，用于番茄钟计时、计时数据查看、以北大为背景的升级打怪养成、心情标签记录、日程安排管理的一款实用性监督学习的小程序~QwQ
 
+项目报告PDF：https://disk.pku.edu.cn/link/AAE966E1EF52C043B1A8A1216FA39053F1
+
+项目演示视频MP4：https://disk.pku.edu.cn/link/AA920CE08ECE144584B93F6A977661C595
+
 ![程序的主界面](https://img-blog.csdnimg.cn/direct/65a4cf0dd5c145298ffc3a63fee203f0.png)
 
 ### 番茄钟计时模块 & 统计数据查看模块
