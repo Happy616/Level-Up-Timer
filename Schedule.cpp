@@ -10,6 +10,7 @@
 #include <QLabel>
 #include <QTextBrowser>
 #include <QDialogButtonBox>
+#include <QTimeEdit>
 
 // Schedule构造函数
 Schedule::Schedule(QWidget *parent)
@@ -74,6 +75,30 @@ void Schedule::onAddTask() {
                        "font-size: 16px;"
                        "border: 2px solid pink;"
                        "border-radius: 10px;"
+                       "}"
+                       "QPushButton {"
+                       "border: 2px solid pink;"
+                       "background-color: white;"
+                       "color: black;"
+                       "border-radius: 5px;"
+                       "padding: 5px;"
+                       "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                       "font-size: 16px;"
+                       "}"
+                       "QPushButton:hover {"
+                       "background-color: pink;"
+                       "color: white;"
+                       "}"
+                       "QLabel {"
+                       "color: black;"
+                       "font-size: 16px;"
+                       "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                       "}"
+                       "QTimeEdit {"
+                       "border: 2px solid pink;"
+                       "border-radius: 5px;"
+                       "font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;" // 可爱字体
+                       "font-size: 16px;"
                        "}");
 
     if (tdlg.exec() == QDialog::Accepted) {
