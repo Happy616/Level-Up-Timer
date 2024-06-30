@@ -190,8 +190,9 @@ void TimerApp::saveTimingData(const QTime &startTime, const QTime &endTime, cons
     file.open(QIODevice::Append | QIODevice::Text);
     QTextStream out(&file);
     out.setCodec("UTF-8");
-    out << QStringLiteral("开始时间: ") << startTime.toString("HH:mm:ss") << " "
-        << QStringLiteral("结束时间: ") << endTime.toString("HH:mm:ss") << " "
-        << QStringLiteral("计时时长: ") << originalDuration.toString("HH:mm:ss") << "\n";
+    out << QStringLiteral("开始时间: ") <<  QStringLiteral("结束时间: ")<< QStringLiteral("计时时长: ") <<'\n'<<
+        startTime.toString("HH:mm:ss") << " "
+        << endTime.toString("HH:mm:ss") << " "
+        << originalDuration.toString("HH:mm:ss") << "\n";
     file.close();
 }
